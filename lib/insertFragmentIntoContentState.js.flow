@@ -169,7 +169,8 @@ const updateBlockMapLinks = (blockMap: BlockMap, originalBlockMap: BlockMap, tar
   });
 };
 const insertFragment = (contentState: ContentState, selectionState: SelectionState, blockMap: BlockMap, fragment: BlockMap, targetKey: string, targetOffset: number): ContentState => {
-  const isTreeBasedBlockMap = blockMap.first() instanceof ContentBlockNode;
+  var _blockMap$first;
+  const isTreeBasedBlockMap = typeof ((_blockMap$first = blockMap.first()) === null || _blockMap$first === void 0 ? void 0 : _blockMap$first.findEntityRanges) === 'function';
   const newBlockArr = [];
   const fragmentSize = fragment.size;
   const target = blockMap.get(targetKey);
@@ -222,7 +223,7 @@ const insertFragmentIntoContentState = (contentState: ContentState, selectionSta
   const targetKey = selectionState.getStartKey();
   const targetOffset = selectionState.getStartOffset();
   const targetBlock = blockMap.get(targetKey);
-  if (targetBlock instanceof ContentBlockNode) {
+  if (typeof (targetBlock === null || targetBlock === void 0 ? void 0 : targetBlock.getChildKeys()) === 'function') {
     invariant(targetBlock.getChildKeys().isEmpty(), '`insertFragment` should not be called when a container node is selected.');
   }
 

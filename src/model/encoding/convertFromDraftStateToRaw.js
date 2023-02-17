@@ -48,12 +48,12 @@ const insertRawBlock = (
   rawBlocks: Array<RawDraftContentBlock>,
   blockCacheRef: {...},
 ) => {
-  if (block && block.constructor.name === "ContentBlock") {
+  if (typeof block?.findEntityRanges === "function") {
     rawBlocks.push(createRawBlock(block, entityMap));
     return;
   }
 
-  invariant(block instanceof ContentBlockNode, 'block is not a BlockNode');
+  //invariant(block instanceof ContentBlockNode, 'block is not a BlockNode');
 
   const parentKey = block.getParentKey();
   // $FlowFixMe[prop-missing]

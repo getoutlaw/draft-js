@@ -40,11 +40,13 @@ const createRawBlock = (block: BlockNodeRecord, entityStorageMap: {
 const insertRawBlock = (block: BlockNodeRecord, entityMap: {
   [key: string]: RawDraftEntity
 }, rawBlocks: Array<RawDraftContentBlock>, blockCacheRef: {...}) => {
-  if (block && block.constructor.name === "ContentBlock") {
+  if (typeof (block === null || block === void 0 ? void 0 : block.findEntityRanges) === "function") {
     rawBlocks.push(createRawBlock(block, entityMap));
     return;
   }
-  invariant(block instanceof ContentBlockNode, 'block is not a BlockNode');
+
+  //invariant(block instanceof ContentBlockNode, 'block is not a BlockNode');
+
   const parentKey = block.getParentKey();
   // $FlowFixMe[prop-missing]
   const rawBlock = blockCacheRef[block.getKey()] = {

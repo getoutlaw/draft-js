@@ -248,7 +248,7 @@ const insertFragment = (
   targetKey: string,
   targetOffset: number,
 ): ContentState => {
-  const isTreeBasedBlockMap = blockMap.first() instanceof ContentBlockNode;
+  const isTreeBasedBlockMap = typeof blockMap.first()?.findEntityRanges === 'function';
   const newBlockArr = [];
   const fragmentSize = fragment.size;
   const target = blockMap.get(targetKey);
@@ -326,7 +326,7 @@ const insertFragmentIntoContentState = (
 
   const targetBlock = blockMap.get(targetKey);
 
-  if (targetBlock instanceof ContentBlockNode) {
+  if (typeof targetBlock?.getChildKeys() === 'function') {
     invariant(
       targetBlock.getChildKeys().isEmpty(),
       '`insertFragment` should not be called when a container node is selected.',
