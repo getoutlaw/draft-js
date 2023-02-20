@@ -1,5 +1,3 @@
-Forked on 2/16/23 by Keven
-
 <p align="center">
   <a href="http://draftjs.org/">
     <img src="https://draftjs.org/img/draftjs-logo.svg" alt="draftjs-logo" width="8%" />
