@@ -1,6 +1,5 @@
 static/
 dist/
-lib/
 build/
 node_modules
 website/src/docs/
