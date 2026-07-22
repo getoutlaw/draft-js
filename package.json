@@ -1,7 +1,7 @@
 {
   "name": "draft-js",
   "description": "A React framework for building text editors.",
-  "version": "0.11.7",
+  "version": "0.11.7-outlaw.1",
   "keywords": [
     "draftjs",
     "editor",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "fbjs": "^3.0.4",
-    "immutable": "~3.7.4",
+    "immutable": "~3.8.2",
     "object-assign": "^4.1.1"
   },
   "peerDependencies": {
@@ -86,8 +86,14 @@
     "webpack-stream": "6.1.0"
   },
   "devEngines": {
-    "node": "14.x || 16.x",
-    "npm": "2.x || 3.x || 5.x || 6.x || 7.x || 8.x"
+    "runtime": {
+      "name": "node",
+      "version": "14.x || 16.x || 18.x || 20.x || 22.x"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": "2.x || 3.x || 5.x || 6.x || 7.x || 8.x || 9.x || 10.x"
+    }
   },
   "jest": {
     "globals": {
